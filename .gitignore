@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.aws/
+*.log
+.DS_Store
+Thumbs.db
+checkpoint/
+checkpoints/
+spark-warehouse/

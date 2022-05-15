@@ -1,5 +1,7 @@
 from kafka import KafkaProducer
-import json, time, random
+import json
+import time
+import random
 
 producer = KafkaProducer(
     bootstrap_servers='localhost:9092',
@@ -10,11 +12,12 @@ while True:
     data = {
         "type": "weather",
         "temperature": random.randint(20, 40),
-        "condition": random.choice(["sunny", "rainy", "cloudy"]),
+        "humidity": random.randint(30, 80),
+        "city": "Houston",
         "timestamp": time.time()
     }
 
     producer.send('iot-topic', value=data)
-    print(data)
+    print("Sent:", data)
 
-    time.sleep(4)
+    time.sleep(2)
